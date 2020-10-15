@@ -1,7 +1,7 @@
 
 body {
-    /* background-color: rgb(77, 180, 180); */
-    background-image: url('bg.jpeg');
-    background-size: cover;
-    background-position: cover;
+    background-color: rgb(77, 180, 180);
+    /* background-image: url('bg.jpeg'); */
+    /* background-size: cover;
+    background-position: cover; */
 }

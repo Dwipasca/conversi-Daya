@@ -5,6 +5,8 @@ console.log('app.js isActive');
 const divAc = document.querySelector('.ac');
 let buttonAddAC = document.querySelector('#btn-ac');
 let buttonAddTV = document.querySelector('#btn-tv');
+let buttonAddIceBox = document.querySelector('#btn-icebox');
+let buttonAddPump = document.querySelector('#btn-pump');
 
 class Daya {
 
@@ -22,7 +24,6 @@ class Daya {
         let inputDaya = document.createElement('input');
         inputDaya.classList.add('form-control', section);
         inputDaya.setAttribute('type', 'number');
-
         
         let divButtonDeleteDaya = document.createElement('div');
         divButtonDeleteDaya.classList.add('input-group-append');
@@ -40,9 +41,7 @@ class Daya {
         // divSection.appendChild(divContainer);
         this.section.appendChild(divContainer);
 
-
-        // inputDaya.addEventListener('keyup', () => this.sumProsesSection( parseFloat(inputDaya.value) ));
-
+        inputDaya.addEventListener('keyup', () => this.sumProsesSection( parseFloat(inputDaya.value) ));
 
         buttonDeleteDaya.addEventListener('click', () => this.deleteEl(divContainer));
     }
@@ -51,38 +50,24 @@ class Daya {
         this.section.removeChild(input);
     }
 
-    sumProsesSection(value){
-        
-        value += value * 0.7457 * 1000;
+    sumProsesSection(value){        
+        value = value * 0.7457 * 1000;
         console.log(value);
+
     }
-
-
 
 }
 
-$(document).on('keyup', ".ac",function () {
-    let totalAC = 0
-    // pertambahan akan terus dilakukan sebanyak, banyaknya inputan
-    $('.ac').each(function(){
-        totalAC +=  parseFloat($(this).val())* 0.7457 * 1000;
-    })  
-    
-    // tampilkan hasil pertambahan
-    $('#hasil-ac').text(`Total : ${totalAC.toFixed(2)} Watt`)
-
-});
-
-
 buttonAddAC.addEventListener('click', function() {
-
     new Daya('ac');
-
 })
 
 buttonAddTV.addEventListener('click', function() {
-
-    // alert('dada');
     new Daya('tv');
-
+})
+buttonAddIceBox.addEventListener('click', function() {
+    new Daya('icebox');
+})
+buttonAddPump.addEventListener('click', function() {
+    new Daya('pump');
 })
